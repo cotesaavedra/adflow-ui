@@ -1,4 +1,4 @@
-import { expect, describe, test, vi} from 'vitest'
+import { expect, describe, test, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Button from './Button'
@@ -70,7 +70,7 @@ describe('Button Component', () => {
 
         render(<Button onClick={handleClick}>Crear Campaña</Button>)
 
-        await userEvent.click(screen.getByRole('button', {name:'Crear Campaña'}))
+        await userEvent.click(screen.getByRole('button', { name: 'Crear Campaña' }))
         expect(handleClick).toHaveBeenCalledTimes(1)
     })
 
@@ -78,7 +78,7 @@ describe('Button Component', () => {
         const handleClick = vi.fn()
 
         render(<Button onClick={handleClick} disabled>Crear Campaña</Button>)
-        const btn = screen.getByRole('button', {name:'Crear Campaña'})
+        const btn = screen.getByRole('button', { name: 'Crear Campaña' })
 
         await userEvent.click(btn)
 

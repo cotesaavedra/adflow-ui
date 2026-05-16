@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 type Variant = 'primary' | 'secondary' | 'ghost' | 'destructive'
 type Size = 'sm' | 'md' | 'lg'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>  {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant,
   size?: Size,
   children: ReactNode
@@ -17,7 +17,7 @@ const baseStyles = [
   'disabled:opacity-50 disabled:cursor-not-allowed',
 ].join(' ')
 
-const variantStyles: Record<Variant, string> ={
+const variantStyles: Record<Variant, string> = {
   primary: 'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700',
   secondary: 'bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 active:bg-slate-100',
   ghost: 'bg-transparent text-blue-500 hover:bg-blue-50 active:bg-blue-100',
@@ -43,9 +43,9 @@ const Button = ({
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
       disabled={disabled}
       {...props}
-      >
-        {children}
-      </button>
+    >
+      {children}
+    </button>
   )
 }
 
