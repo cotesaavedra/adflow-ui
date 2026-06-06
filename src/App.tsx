@@ -3,10 +3,10 @@ import { useState } from 'react'
 import Button from './components/Button/Button'
 import Badge from './components/Badge/Badge'
 import Avatar from './components/Avatar/Avatar'
-import Toast from './components/Toast/Toast'
+import Toast, { type Variant } from './components/Toast/Toast'
 
 function App() {
-  const [toasts, setToasts] = useState([
+  const [toasts, setToasts] = useState<{ id: number, variant: Variant, title: string, message?: string }[]>([
     { id: 1, variant: 'success', title: 'Campaña publicada', message: 'Black Friday 2024 está activa y recibiendo impresiones.' },
     { id: 2, variant: 'error', title: 'Error al publicar', message: 'No se pudo publicar la campaña. Revisá el presupuesto mínimo.' },
     { id: 3, variant: 'warning', title: 'Presupuesto bajo', message: 'Tu campaña tiene menos de $500 disponibles.' },
@@ -20,7 +20,7 @@ function App() {
         {toasts.map(toast => (
           <Toast
             key={toast.id}
-            variant={toast.variant as any}
+            variant={toast.variant}
             title={toast.title}
             message={toast.message}
             onClose={() => setToasts(toasts.filter(t => t.id !== toast.id))}

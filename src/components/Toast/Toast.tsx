@@ -1,6 +1,6 @@
 import { CheckCircle, XCircle, AlertTriangle, Info, Bell, X } from 'lucide-react'
 
-type Variant = "success" | "error" | "warning" | "info" | "neutral";
+export type Variant = "success" | "error" | "warning" | "info" | "neutral";
 
 const variantToast = {
     success: "bg-emerald-50 border-emerald-200 text-emerald-900",
