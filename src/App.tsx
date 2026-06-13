@@ -24,6 +24,7 @@ function App() {
     { id: 5, variant: 'neutral', title: 'Cambios guardados' },
   ])
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalDefaultOpen, setIsModalDefaultOpen] = useState(false)
 
   return (
     <div className="flex flex-col gap-10 p-10 max-w-2xl">
@@ -94,18 +95,29 @@ function App() {
         <Button variant="destructive" onClick={() => setIsModalOpen(true)}>
           Eliminar campaña
         </Button>
-        <div>
-          <Modal
-            variant="destructive"
-            title="Eliminar campaña"
-            description="Esta acción eliminará permanentemente 'Black Friday 2024'. No se puede deshacer"
-            isOpen={isModalOpen}
-            onClose={() => setIsModalOpen(false)}
-            onConfirm={() => setIsModalOpen(false)}
-            confirmLabel="Eliminar"
-            cancelLabel="Cancelar"
-          />
-        </div>
+        <Button variant="primary" onClick={() => setIsModalDefaultOpen(true)}>
+          Pausar campaña
+        </Button>
+        <Modal
+          variant="destructive"
+          title="Eliminar campaña"
+          description="Esta acción eliminará permanentemente 'Black Friday 2024'. No se puede deshacer"
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onConfirm={() => setIsModalOpen(false)}
+          confirmLabel="Eliminar"
+          cancelLabel="Cancelar"
+        />
+        <Modal
+          variant="default"
+          title="Pausar campaña"
+          description="¿Seguro que querés pausar 'Campaña Verano'? Podés reactivarla en cualquier momento."
+          isOpen={isModalDefaultOpen}
+          onClose={() => setIsModalDefaultOpen(false)}
+          onConfirm={() => setIsModalDefaultOpen(false)}
+          confirmLabel="Confirmar"
+          cancelLabel="Cancelar"
+        />
       </Section>
     </div>
   )
